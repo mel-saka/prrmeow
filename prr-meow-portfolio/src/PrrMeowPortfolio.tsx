@@ -492,7 +492,7 @@ function LookDialog({ openId, onClose }: { openId: string | null; onClose: () =>
       {openId && look && (
         <Dialog open={true} onOpenChange={() => onClose()}>
           <DialogContent className="fixed inset-0 z-50 flex items-center justify-center p-6">
-            <div className="w-full max-w-full sm:max-w-3xl md:max-w-5xl lg:max-w-7xl p-0 overflow-hidden bg-white/95 backdrop-blur-2xl border-0 shadow-2xl rounded-3xl mx-4 sm:mx-6">
+            <div className="w-full max-w-full sm:max-w-3xl md:max-w-5xl lg:max-w-6xl p-0 overflow-hidden bg-white/95 backdrop-blur-2xl border-0 shadow-2xl rounded-3xl mx-auto">
               <motion.button
                 onClick={onClose}
                 className="absolute right-6 top-6 z-50 rounded-full bg-white/90 backdrop-blur-sm p-3 shadow-xl hover:shadow-2xl transition-all"
@@ -502,7 +502,7 @@ function LookDialog({ openId, onClose }: { openId: string | null; onClose: () =>
                 <X className="h-5 w-5" />
               </motion.button>
 
-              <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr]">
+              <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr]">
               {/* Image section with parallax */}
               <div className="relative bg-gradient-to-br from-pink-50 to-purple-50 overflow-hidden">
                 <motion.img 
