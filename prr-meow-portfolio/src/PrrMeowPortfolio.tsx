@@ -24,10 +24,12 @@ const CATEGORIES = ["NEW", "Tops", "Pants", "Dresses", "Coats", "Accessories", "
 const DESIGNERS = [
   {
     id: "pm",
-    name: "Prr Meow",
-    avatar: "https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&w=800&auto=format&fit=crop",
-    bio: "Whimsical, feline‑inspired couture designer bringing dreams to life through fabric and thread.",
-    story: "Born from a love of cats and haute couture, Prr Meow creates pieces that capture the grace and mystery of our feline friends. Each design is a celebration of playful elegance.",
+    name: "Cat Gonzalez",
+  avatar: "/src/assets/designer.jpeg",
+    bio: "Meet the DesignerZ~ sustainable beauty ~ ethereal femininity ~ timeless individuality ~ playful elegance ~ layered expression ~",
+    story: `prrmeow is a brand that celebrates modern femininity through timeless, playful and elegant garments that encourage self expression and connecting with your softer side - regardless of gender. Inspired by historical silhouettes and Lolita fashion yet grounded by everyday wearability, each piece is designed to be layered, customized and cherished beyond trends.
+
+With sustainability, ethical production and transparency at its core, the brand also creates clothing that not only makes the wearer feel pretty and confident, but also reflects a commitment to natural fibres, thoughtful design and lasting value.`,
     experience: "5 years",
     pieces: "200+",
     socials: { instagram: "#", web: "#" },
@@ -896,7 +898,7 @@ export default function PrrMeowPortfolio() {
             <h2 className="text-5xl font-black text-gray-800 mb-4">
               Meet the Designer
             </h2>
-            <p className="text-xl text-gray-600">The creative soul behind every stitch</p>
+            <p className="max-w-3xl mx-auto text-lg text-gray-700">prrmeow is a brand that celebrates modern femininity through timeless, playful and elegant garments that encourage self expression and connecting with your softer side - regardless of gender. Inspired by historical silhouettes and Lolita fashion yet grounded by everyday wearability, each piece is designed to be layered, customized and cherished beyond trends. With sustainability, ethical production and transparency at its core, the brand also creates clothing that not only makes the wearer feel pretty and confident, but also reflects a commitment to natural fibres, thoughtful design and lasting value.</p>
           </div>
 
           {DESIGNERS.map(designer => (
