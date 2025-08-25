@@ -1,5 +1,5 @@
 import React, { useMemo, useState, useEffect } from "react";
-import logo from "@/assets/logo.PNG";
+import { logoImg, designer } from "@/assets";
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import { Search, Mail, Instagram, Globe, ChevronRight, Sparkles, Star, ArrowUpRight, X, Heart, Zap, Moon } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -25,7 +25,7 @@ const DESIGNERS = [
   {
     id: "pm",
     name: "Cat Gonzalez",
-    avatar: "/src/assets/designer.jpeg",
+  avatar: designer,
     bio: "Meet the DesignerZ~ sustainable beauty ~ ethereal femininity ~ timeless individuality ~ playful elegance ~ layered expression ~",
     story: `prrmeow is a brand that celebrates modern femininity through timeless, playful and elegant garments that encourage self expression and connecting with your softer side - regardless of gender. Inspired by historical silhouettes and Lolita fashion yet grounded by everyday wearability, each piece is designed to be layered, customized and cherished beyond trends.
 
@@ -203,7 +203,7 @@ function BrandWordmark() {
     >
       <div className="relative">
         <motion.img
-          src={logo}
+          src={logoImg}
           alt="Prr Meow logo"
           className="h-12 w-12 rounded-3xl object-cover shadow-2xl"
           animate={{ rotate: isHovered ? 360 : 0 }}
