@@ -491,7 +491,7 @@ function LookDialog({ openId, onClose }: { openId: string | null; onClose: () =>
     <AnimatePresence>
       {openId && look && (
         <Dialog open={true} onOpenChange={() => onClose()}>
-          <DialogContent className="max-w-7xl p-0 overflow-hidden bg-white/95 backdrop-blur-2xl border-0 shadow-2xl">
+          <DialogContent className="w-full max-w-full sm:max-w-3xl md:max-w-5xl lg:max-w-7xl p-0 overflow-hidden bg-white/95 backdrop-blur-2xl border-0 shadow-2xl mx-4 sm:mx-6 rounded-none sm:rounded-3xl">
             <motion.button
               onClick={onClose}
               className="absolute right-6 top-6 z-50 rounded-full bg-white/90 backdrop-blur-sm p-3 shadow-xl hover:shadow-2xl transition-all"
@@ -508,15 +508,15 @@ function LookDialog({ openId, onClose }: { openId: string | null; onClose: () =>
                   key={selectedImage}
                   src={look.gallery[selectedImage] || look.hero}
                   alt={look.title}
-                  className="w-full h-full object-cover min-h-[60vh] lg:min-h-full"
-                  initial={{ scale: 1.2, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.6 }}
+                  className="w-full h-auto max-h-[60vh] sm:max-h-[70vh] lg:h-full lg:min-h-full object-contain lg:object-cover"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.45 }}
                 />
                 
                 {/* Image navigation dots */}
                 {look.gallery.length > 1 && (
-                  <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3">
+                  <div className="absolute sm:bottom-8 bottom-4 left-1/2 -translate-x-1/2 flex gap-3 z-20">
                     {look.gallery.map((_, idx) => (
                       <motion.button
                         key={idx}
@@ -532,7 +532,7 @@ function LookDialog({ openId, onClose }: { openId: string | null; onClose: () =>
               </div>
               
               {/* Details section */}
-              <div className="p-10 lg:p-12 space-y-8 max-h-[80vh] lg:max-h-none overflow-y-auto">
+              <div className="p-6 sm:p-8 lg:p-12 space-y-8 max-h-[70vh] sm:max-h-[80vh] lg:max-h-none overflow-y-auto">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
