@@ -491,27 +491,28 @@ function LookDialog({ openId, onClose }: { openId: string | null; onClose: () =>
     <AnimatePresence>
       {openId && look && (
         <Dialog open={true} onOpenChange={() => onClose()}>
-          <DialogContent className="w-full max-w-full sm:max-w-3xl md:max-w-5xl lg:max-w-7xl p-0 overflow-hidden bg-white/95 backdrop-blur-2xl border-0 shadow-2xl mx-4 sm:mx-6 rounded-none sm:rounded-3xl">
-            <motion.button
-              onClick={onClose}
-              className="absolute right-6 top-6 z-50 rounded-full bg-white/90 backdrop-blur-sm p-3 shadow-xl hover:shadow-2xl transition-all"
-              whileHover={{ scale: 1.1, rotate: 90 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <X className="h-5 w-5" />
-            </motion.button>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-2">
+          <DialogContent className="fixed inset-0 z-50 flex items-center justify-center p-6">
+            <div className="w-full max-w-full sm:max-w-3xl md:max-w-5xl lg:max-w-7xl p-0 overflow-hidden bg-white/95 backdrop-blur-2xl border-0 shadow-2xl rounded-3xl mx-4 sm:mx-6">
+              <motion.button
+                onClick={onClose}
+                className="absolute right-6 top-6 z-50 rounded-full bg-white/90 backdrop-blur-sm p-3 shadow-xl hover:shadow-2xl transition-all"
+                whileHover={{ scale: 1.1, rotate: 90 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <X className="h-5 w-5" />
+              </motion.button>
+
+              <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr]">
               {/* Image section with parallax */}
               <div className="relative bg-gradient-to-br from-pink-50 to-purple-50 overflow-hidden">
                 <motion.img 
                   key={selectedImage}
                   src={look.gallery[selectedImage] || look.hero}
                   alt={look.title}
-                  className="w-full h-auto max-h-[60vh] sm:max-h-[70vh] lg:h-full lg:min-h-full object-contain lg:object-cover"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.45 }}
+                  className="w-full h-full object-cover min-h-[60vh] lg:min-h-full"
+                  initial={{ scale: 1.2, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.6 }}
                 />
                 
                 {/* Image navigation dots */}
@@ -522,7 +523,7 @@ function LookDialog({ openId, onClose }: { openId: string | null; onClose: () =>
                         key={idx}
                         onClick={() => setSelectedImage(idx)}
                         className={`h-2 rounded-full bg-white/80 transition-all ${
-                          idx === selectedImage ? 'w-12' : 'w-2'
+                          idx === selectedImage ? 'w-6 sm:w-12' : 'w-2'
                         }`}
                         whileHover={{ scale: 1.2 }}
                       />
@@ -615,6 +616,7 @@ function LookDialog({ openId, onClose }: { openId: string | null; onClose: () =>
                 >
                   <InquiryForm look={look} designer={designer!} />
                 </motion.div>
+              </div>
               </div>
             </div>
           </DialogContent>
