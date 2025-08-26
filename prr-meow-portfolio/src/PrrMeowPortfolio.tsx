@@ -486,43 +486,56 @@ function LookDialog({ openId, onClose }: { openId: string | null; onClose: () =>
   useEffect(() => {
     if (openId) setSelectedImage(0);
   }, [openId]);
-
   return (
     <AnimatePresence>
       {openId && look && (
         <Dialog open={true} onOpenChange={() => onClose()}>
-          <DialogContent className="max-w-7xl p-0 overflow-hidden bg-white/95 backdrop-blur-2xl border-0 shadow-2xl">
+          <DialogContent
+            className="
+              p-0 bg-white/95 backdrop-blur-2xl border-0 shadow-2xl
+              sm:rounded-3xl
+              w-[100vw] max-w-[100vw]
+              sm:w-auto sm:max-w-[95vw] md:max-w-[90vw] lg:max-w-6xl
+              max-h-[90vh] overflow-hidden
+            "
+          >
             <motion.button
               onClick={onClose}
-              className="absolute right-6 top-6 z-50 rounded-full bg-white/90 backdrop-blur-sm p-3 shadow-xl hover:shadow-2xl transition-all"
+              className="
+                absolute right-3 top-3 sm:right-6 sm:top-6
+                z-50 rounded-full bg-white/90 backdrop-blur-sm p-3
+                shadow-xl hover:shadow-2xl transition-all
+              "
               whileHover={{ scale: 1.1, rotate: 90 }}
               whileTap={{ scale: 0.9 }}
             >
               <X className="h-5 w-5" />
             </motion.button>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-2">
-              {/* Image section with parallax */}
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 h-full">
+              {/* Left: image */}
               <div className="relative bg-gradient-to-br from-pink-50 to-purple-50 overflow-hidden">
-                <motion.img 
+                <motion.img
                   key={selectedImage}
                   src={look.gallery[selectedImage] || look.hero}
                   alt={look.title}
-                  className="w-full h-full object-cover min-h-[60vh] lg:min-h-full"
+                  className="
+                    w-full object-cover
+                    h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-full
+                  "
                   initial={{ scale: 1.2, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.6 }}
                 />
-                
                 {/* Image navigation dots */}
                 {look.gallery.length > 1 && (
-                  <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3">
+                  <div className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 flex gap-3">
                     {look.gallery.map((_, idx) => (
                       <motion.button
                         key={idx}
                         onClick={() => setSelectedImage(idx)}
                         className={`h-2 rounded-full bg-white/80 transition-all ${
-                          idx === selectedImage ? 'w-12' : 'w-2'
+                          idx === selectedImage ? 'w-6 sm:w-12' : 'w-2'
                         }`}
                         whileHover={{ scale: 1.2 }}
                       />
@@ -530,9 +543,10 @@ function LookDialog({ openId, onClose }: { openId: string | null; onClose: () =>
                   </div>
                 )}
               </div>
-              
-              {/* Details section */}
-              <div className="p-10 lg:p-12 space-y-8 max-h-[80vh] lg:max-h-none overflow-y-auto">
+
+              {/* Right: details (own scroll) */}
+              <div className="min-h-0 max-h-full overflow-y-auto p-6 sm:p-10 space-y-8">
+                {/* ...existing details/content exactly as-is... */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -542,10 +556,9 @@ function LookDialog({ openId, onClose }: { openId: string | null; onClose: () =>
                     {look.category}
                   </Badge>
                   <h2 className="text-4xl font-black text-gray-800 mb-3">{look.title}</h2>
-                  
                   <div className="flex items-center gap-4">
-                    <img 
-                      src={designer!.avatar} 
+                    <img
+                      src={designer!.avatar}
                       className="h-12 w-12 rounded-full object-cover ring-4 ring-pink-100"
                     />
                     <div>
@@ -554,8 +567,7 @@ function LookDialog({ openId, onClose }: { openId: string | null; onClose: () =>
                     </div>
                   </div>
                 </motion.div>
-                
-                <motion.div 
+                <motion.div
                   className="grid grid-cols-2 gap-4"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -572,7 +584,6 @@ function LookDialog({ openId, onClose }: { openId: string | null; onClose: () =>
                     <p className="text-gray-800 font-semibold">{look.fabric}</p>
                   </div>
                 </motion.div>
-                
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -581,14 +592,14 @@ function LookDialog({ openId, onClose }: { openId: string | null; onClose: () =>
                   <div className="text-sm font-medium text-gray-600 mb-4">Color Story</div>
                   <div className="flex gap-4">
                     {look.palette.map((color, i) => (
-                      <motion.div 
+                      <motion.div
                         key={i}
                         className="flex flex-col items-center gap-2"
                         whileHover={{ scale: 1.1 }}
                       >
-                        <div 
+                        <div
                           className="h-16 w-16 rounded-2xl shadow-xl"
-                          style={{ 
+                          style={{
                             background: color,
                             boxShadow: `0 10px 40px ${color}50`
                           }}
@@ -598,7 +609,6 @@ function LookDialog({ openId, onClose }: { openId: string | null; onClose: () =>
                     ))}
                   </div>
                 </motion.div>
-                
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -607,7 +617,6 @@ function LookDialog({ openId, onClose }: { openId: string | null; onClose: () =>
                 >
                   <p className="text-gray-600 leading-relaxed text-lg">{look.notes}</p>
                 </motion.div>
-                
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
