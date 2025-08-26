@@ -176,7 +176,7 @@ function BrandWordmark() {
   const [isHovered, setIsHovered] = useState(false);
   return (
     <motion.div
-      className="flex items-center gap-3 select-none cursor-pointer"
+      className="flex items-center select-none cursor-pointer"
       whileHover={{ scale: 1.05 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
@@ -194,20 +194,6 @@ function BrandWordmark() {
           style={{ background: "linear-gradient(135deg, #FF6B9D 0%, #C9669F 100%)" }}
           animate={{ scale: isHovered ? 1.2 : 1 }}
         />
-      </div>
-      <div>
-        <span
-          className="font-black text-2xl tracking-tight block"
-          style={{
-            fontFamily: '"Playwrite Indonesia", cursive',
-            background: "linear-gradient(135deg, #FF6B9D 0%, #C9669F 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent"
-          }}
-        >
-          Prr Meow
-        </span>
-        <span className="text-xs text-purple-400 tracking-widest">COUTURE</span>
       </div>
     </motion.div>
   );
@@ -252,14 +238,14 @@ function Hero() {
 
         <motion.div className="space-y-4">
           <motion.h1
-            className="text-7xl sm:text-9xl font-black tracking-tighter"
+            className="text-5xl sm:text-7xl font-black tracking-tighter"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
           >
             <span
+              className="font-playwrite"
               style={{
-                fontFamily: '"Playwrite Indonesia", cursive',
                 background: "linear-gradient(135deg, #FF6B9D 0%, #C9669F 50%, #FFB6C1 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
@@ -629,7 +615,6 @@ export default function PrrMeowPortfolio() {
       <FloatingParticles />
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playwrite+Indonesia&display=swap');
         @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
         @keyframes glow { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
         .float-animation { animation: float 4s ease-in-out infinite; }
@@ -639,7 +624,7 @@ export default function PrrMeowPortfolio() {
       {/* Header */}
       <motion.header className="fixed top-0 z-50 w-full" initial={{ y: -100 }} animate={{ y: 0 }} transition={{ duration: 0.6 }}>
         <div className="bg-white/10 backdrop-blur-2xl border-b border-white/20">
-          <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+          <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
             <BrandWordmark />
             <nav className="hidden md:flex items-center gap-8">
               <motion.a href="#collections" className="text-sm font-medium text-gray-700 hover:text-pink-600 transition-colors" whileHover={{ scale: 1.05 }}>
@@ -661,7 +646,7 @@ export default function PrrMeowPortfolio() {
       {/* Collections */}
       <section id="collections" className="relative max-w-7xl mx-auto px-6 py-20">
         <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-          <h2 className="text-5xl font-black text-gray-800 mb-4">The Collection</h2>
+          <h2 className="text-5xl font-black text-gray-800 mb-4 font-playwrite">The Collection</h2>
           <p className="text-gray-600 text-lg">Each piece is a work of art</p>
         </motion.div>
 
@@ -688,7 +673,7 @@ export default function PrrMeowPortfolio() {
                     <div>
                       <h4 className="font-semibold text-gray-800 mb-2">Categories</h4>
                       <nav className="space-y-2">
-                        {CATEGORIES.filter(c => c !== "NEW").map(cat => (
+                        {["NEW", ...CATEGORIES.filter(c => c !== "NEW")].map(cat => (
                           <button
                             key={cat}
                             onClick={() => {
@@ -699,7 +684,10 @@ export default function PrrMeowPortfolio() {
                               activeCategory === cat ? "bg-gradient-to-r from-pink-500 to-purple-500 text-white shadow-lg" : "text-gray-700 hover:bg-pink-50"
                             }`}
                           >
-                            {cat}
+                            <span className="flex items-center justify-between">
+                              {cat}
+                              {cat === "NEW" && <Star className="h-4 w-4" />}
+                            </span>
                           </button>
                         ))}
                       </nav>
@@ -726,7 +714,7 @@ export default function PrrMeowPortfolio() {
                 <div className="bg-white/80 backdrop-blur-2xl rounded-3xl p-8 shadow-2xl border border-white/50">
                   <h3 className="font-bold text-gray-800 mb-6 text-lg">Explore</h3>
                   <nav className="space-y-2">
-                    {CATEGORIES.filter(c => c !== "NEW").map(cat => (
+                    {["NEW", ...CATEGORIES.filter(c => c !== "NEW")].map(cat => (
                       <motion.button
                         key={cat}
                         onClick={() => setActiveCategory(cat)}
@@ -736,7 +724,10 @@ export default function PrrMeowPortfolio() {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
-                        {cat}
+                        <span className="flex items-center justify-between">
+                          {cat}
+                          {cat === "NEW" && <Star className="h-4 w-4" />}
+                        </span>
                       </motion.button>
                     ))}
                   </nav>
@@ -763,18 +754,19 @@ export default function PrrMeowPortfolio() {
                 transition={{ duration: 0.6 }}
               >
                 <Sparkles className="h-16 w-16 text-pink-400 mx-auto mb-6" />
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">Choose Your Style</h3>
+                <h3 className="text-2xl font-bold text-gray-800 mb-4 font-playwrite">Choose Your Style</h3>
                 <p className="text-gray-600 text-lg mb-8">Select a category from the menu to explore our beautiful collection</p>
                 <div className="flex flex-wrap justify-center gap-3">
-                  {CATEGORIES.filter(c => c !== "NEW").map(cat => (
+                  {["NEW", ...CATEGORIES.filter(c => c !== "NEW")].map(cat => (
                     <motion.button
                       key={cat}
                       onClick={() => setActiveCategory(cat)}
-                      className="px-6 py-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-medium shadow-lg hover:shadow-xl transition-all"
+                      className="px-6 py-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-medium shadow-lg hover:shadow-xl transition-all flex items-center gap-2"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       {cat}
+                      {cat === "NEW" && <Star className="h-4 w-4" />}
                     </motion.button>
                   ))}
                 </div>
@@ -799,7 +791,7 @@ export default function PrrMeowPortfolio() {
 
         <motion.div className="relative max-w-7xl mx-auto px-6" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-black text-gray-800 mb-4">Meet the Designer</h2>
+            <h2 className="text-5xl font-black text-gray-800 mb-4 font-playwrite">Meet the Designer</h2>
           </div>
 
           {DESIGNERS.map(designer => (
@@ -827,7 +819,7 @@ export default function PrrMeowPortfolio() {
 
               <motion.div className="space-y-8" initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
                 <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 shadow-xl">
-                  <h4 className="text-2xl font-bold text-gray-800 mb-4">The Story</h4>
+                  <h4 className="text-2xl font-bold text-gray-800 mb-4 font-playwrite">The Story</h4>
                   <p className="text-gray-600 leading-relaxed text-lg">{designer.story}</p>
                 </div>
 
@@ -846,7 +838,7 @@ export default function PrrMeowPortfolio() {
         <div className="max-w-4xl mx-auto px-6">
           <motion.div className="bg-white/80 backdrop-blur-2xl rounded-3xl p-12 shadow-2xl border border-white/50" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <div className="text-center mb-10">
-              <h3 className="text-4xl font-black text-gray-800 mb-4">Get in Touch</h3>
+              <h3 className="text-4xl font-black text-gray-800 mb-6 font-playwrite">Get in Touch</h3>
               <p className="text-gray-600 text-lg">Start your fashion journey today</p>
             </div>
 
