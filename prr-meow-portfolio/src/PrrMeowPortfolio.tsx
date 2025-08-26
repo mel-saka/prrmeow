@@ -28,7 +28,7 @@ const DESIGNERS = [
     id: "pm",
     name: "Cat Gonzalez",
     avatar: designer,
-    bio: "Meet the DesignerZ~ sustainable beauty ~ ethereal femininity ~ timeless individuality ~ playful elegance ~ layered expression ~",
+    bio: "Meet the Designer~ sustainable beauty ~ ethereal femininity ~ timeless individuality ~ playful elegance ~ layered expression ~",
     story: `prrmeow is a brand that celebrates modern femininity through timeless, playful and elegant garments that encourage self expression and connecting with your softer side - regardless of gender. Inspired by historical silhouettes and Lolita fashion yet grounded by everyday wearability, each piece is designed to be layered, customized and cherished beyond trends.
 
 With sustainability, ethical production and transparency at its core, the brand also creates clothing that not only makes the wearer feel pretty and confident, but also reflects a commitment to natural fibres, thoughtful design and lasting value.`,
