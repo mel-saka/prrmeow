@@ -13,6 +13,7 @@ export type Look = {
   notes: string;
   price: string;
   isNew: boolean;
+  likes?: number;
 };
 
 export type Designer = {

@@ -23,3 +23,34 @@
     100% { transform: translate(0px, 0px) scale(1); }
   }
 }
+
+/* Custom paw cursors (place .cur and optional PNG fallbacks in /public/cursors/) */
+/* Default cursor everywhere */
+html, body {
+  cursor: url("/cursors/paw-default.cur"),
+          url("/cursors/paw-default-32.PNG") 8 8,
+          auto;
+}
+
+/* Pointer cursor on interactive elements (links, buttons, etc.) */
+a, button, [role="button"], .cursor-pointer, input[type="checkbox"], input[type="radio"] {
+  cursor: url("/cursors/paw-pointer.cur"),
+          url("/cursors/paw-pointer.PNG") 8 8,
+          pointer;
+}
+
+/* Keep text caret where it belongs */
+input[type="text"], input[type="email"], input[type="search"], textarea, .cursor-text {
+  cursor: text;
+}
+
+/* Draggable things feel grabbable */
+[draggable="true"], .cursor-grab {
+  cursor: grab;
+}
+
+/* Optional: scope paw cursors to a wrapper .pm-app instead of whole page
+.pm-app, .pm-app body {
+  cursor: url("/cursors/paw-default.cur"), url("/cursors/paw-default-32.png") 8 8, auto;
+}
+*/
