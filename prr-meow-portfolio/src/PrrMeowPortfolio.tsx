@@ -572,7 +572,7 @@ const LookCard = React.forwardRef<HTMLDivElement, { look: ReturnType<typeof buil
         className="transform-gpu cursor-pointer"
       >
       <Card className="group overflow-hidden bg-white/90 backdrop-blur-xl shadow-2xl hover:shadow-[0_20px_70px_-15px_rgba(255,107,157,0.5)] transition-all duration-500 border-0">
-        <div className="relative aspect-[3/4] overflow-hidden">
+        <div className="relative aspect-[4/5] overflow-hidden">
           <motion.img src={look.hero} alt={look.title} className="h-full w-full object-cover" whileHover={{ scale: 1.1 }} transition={{ duration: 0.6 }} />
           <motion.div
             className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"
