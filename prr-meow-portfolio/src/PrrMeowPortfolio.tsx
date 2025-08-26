@@ -20,7 +20,7 @@ const CORAL = "#FFC3A0";
 const LAVENDER = "#E0BBE4";
 const MINT = "#A8E6CF";
 
-const CATEGORIES = ["NEW", "Tops", "Pants", "Dresses", "Coats", "Accessories", "Custom"] as const;
+const CATEGORIES = ["NEW", "Tops", "Pants", "Skirts", "Dresses", "Coats", "Accessories", "Custom"] as const;
 
 /** ─────────── designers ─────────── */
 const DESIGNERS = [
@@ -40,91 +40,349 @@ With sustainability, ethical production and transparency at its core, the brand 
 
 const getDesigner = (id: string) => DESIGNERS.find(d => d.id === id)!;
 
-/** ─────────── default LOOKS (fallbacks) ─────────── */
+/** ─────────── REAL PRODUCTS ─────────── */
 const FALLBACK_LOOKS = [
   {
-    id: "d1",
-    title: "Blush Midi Dress",
+    id: "laced-pants",
+    title: "Laced Pants",
     designerId: "pm",
-    category: "Dresses" as const,
-    palette: ["#FFB6C1", "#FFF", "#333"],
-    fabric: "Silk crepe",
-    sizeRange: "XS–XL",
-    hero: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop",
+    category: "Pants" as const,
+    palette: ["#1e3a8a", "#374151", "#6b7280"],
+    fabric: "Denim, Canvas",
+    sizeRange: "XXS–XXL and Made‑to‑measure Available",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Laced-up.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1600&auto=format&fit=crop"
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Laced-up.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Laced-up1.jpg"
     ],
-    notes: "Soft A-line midi with subtle pleating and back tie.",
+    notes: "Wide leg pants with a cheeky slit on the side which can be adjusted to be loosely tied or hidden. Waistband inspired by a collar",
     price: "Enquire",
     isNew: true,
     likes: 234
   },
   {
-    id: "t1",
-    title: "Lime Pop Top",
+    id: "frills-long-sleeve",
+    title: "Frills Long Sleeve",
     designerId: "pm",
     category: "Tops" as const,
-    palette: ["#E2F9AE", "#111", "#fff"],
-    fabric: "Cotton-silk",
-    sizeRange: "S–L",
-    hero: "https://images.unsplash.com/photo-1520975661595-64567cd0dc68?q=80&w=1600&auto=format&fit=crop",
+    palette: ["#f8fafc", "#e2e8f0", "#64748b"],
+    fabric: "Linen. Cotton.",
+    sizeRange: "XXS–XXL",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Collared-lace.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1520975661595-64567cd0dc68?q=80&w=1600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1600&auto=format&fit=crop"
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Collared-lace.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/collared-lace1.jpg"
     ],
-    notes: "Relaxed cropped top with dropped shoulder and boxy silhouette.",
+    notes: "Long sleeve top with a cute lace collar. Perfect for layering!",
     price: "Enquire",
     isNew: false,
     likes: 189
   },
   {
-    id: "c1",
-    title: "Structured Coat",
+    id: "kitty-fur-coat",
+    title: "Kitty Fur Coat",
     designerId: "pm",
     category: "Coats" as const,
-    palette: ["#1f2937", "#9ca3af", "#FFB6C1"],
-    fabric: "Wool blend",
-    sizeRange: "Made-to-measure",
-    hero: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1600&auto=format&fit=crop",
+    palette: ["#92400e", "#d97706", "#fbbf24"],
+    fabric: "Faux Fur",
+    sizeRange: "XXS–XXL",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Kitty-coat.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&w=1600&auto=format&fit=crop"
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Kitty-coat.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/kitty-coat1.jpg"
     ],
-    notes: "Single-breasted long coat with sculpted shoulder.",
+    notes: "Fluffy dreams to embrace you, pop the hood for some cute ears :3",
     price: "Enquire",
     isNew: true,
     likes: 412
   },
   {
-    id: "p1",
-    title: "Wide Leg Trousers",
+    id: "pleated-petals",
+    title: "Pleated Petals",
     designerId: "pm",
-    category: "Pants" as const,
-    palette: ["#8B4513", "#F5DEB3", "#000"],
-    fabric: "Linen blend",
-    sizeRange: "XS–XXL",
-    hero: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=1600&auto=format&fit=crop",
-    gallery: ["https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=1600&auto=format&fit=crop"],
-    notes: "High-waisted palazzo pants with flowing silhouette.",
+    category: "Skirts" as const,
+    palette: ["#1e3a8a", "#374151", "#6b7280"],
+    fabric: "Canvas. Denim.",
+    sizeRange: "XXS–XXL",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Pleated-petals.jpg",
+    gallery: [
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Pleated-petals.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/pleated-petals1.jpg"
+    ],
+    notes: "Fairy core to make you feel like you're wearing a flower.",
     price: "Enquire",
     isNew: false,
     likes: 156
   },
   {
-    id: "d2",
-    title: "Evening Gown",
+    id: "sheer-coat",
+    title: "Sheer Coat",
     designerId: "pm",
-    category: "Dresses" as const,
-    palette: ["#4A0E4E", "#81689D", "#FFD700"],
-    fabric: "Tulle & satin",
-    sizeRange: "Custom",
-    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/IMG_9677.JPG",
-    gallery: ["https://stprrmeow.blob.core.windows.net/bc-prrmeow/IMG_9677.JPG"],
-    notes: "Dramatic ballgown with hand-embroidered details.",
+    category: "Coats" as const,
+    palette: ["#f8fafc", "#e2e8f0", "#cbd5e1"],
+    fabric: "Silk Organza. Cotton Organza.",
+    sizeRange: "XXS–XXL",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Sheer-coat.jpg",
+    gallery: [
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Sheer-coat.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/sheer-coat1.jpg"
+    ],
+    notes: "Tailored coat style which doesn't hide your cute outfit!",
     price: "Enquire",
     isNew: true,
     likes: 523
+  },
+  {
+    id: "loli-dress",
+    title: "Loli Dress",
+    designerId: "pm",
+    category: "Dresses" as const,
+    palette: ["#f8fafc", "#fce7f3", "#ec4899"],
+    fabric: "Linen. Cotton. Silk.",
+    sizeRange: "Made‑to‑measure",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Loli-dress.jpg",
+    gallery: [
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Loli-dress.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Loli-dress1.jpg"
+    ],
+    notes: "Layers, ties, frills. Everything you need from a Lolita inspired dress. Time to feel like a princess <3",
+    price: "Enquire",
+    isNew: true,
+    likes: 645
+  },
+  {
+    id: "sheer-blouse",
+    title: "Sheer Blouse",
+    designerId: "pm",
+    category: "Tops" as const,
+    palette: ["#f8fafc", "#e2e8f0", "#64748b"],
+    fabric: "Silk Organza",
+    sizeRange: "XXS–XXL",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Sheer-blouse.jpg",
+    gallery: [
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Sheer-blouse.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Sheer-blouse1.jpg"
+    ],
+    notes: "Layer it on top, underneath, or be cheeky and wear it as is ;)",
+    price: "Enquire",
+    isNew: false,
+    likes: 298
+  },
+  {
+    id: "asymmetrical-pleats",
+    title: "Asymmetrical Pleats",
+    designerId: "pm",
+    category: "Skirts" as const,
+    palette: ["#1e3a8a", "#374151", "#6b7280"],
+    fabric: "Denim. Canvas.",
+    sizeRange: "XXS–XXL",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Asymmetrical-pleats.jpg",
+    gallery: [
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Asymmetrical-pleats.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Asymmetrical-pleats1.jpg"
+    ],
+    notes: "Cute, pleated skirt with slight asymmetry.",
+    price: "Enquire",
+    isNew: false,
+    likes: 187
+  },
+  {
+    id: "sheer-dress",
+    title: "Sheer Dress",
+    designerId: "pm",
+    category: "Dresses" as const,
+    palette: ["#f8fafc", "#e2e8f0", "#374151"],
+    fabric: "Silk Organza, Cotton.",
+    sizeRange: "XXS–XXL",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Sheer-dress.jpg",
+    gallery: [
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Sheer-dress.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Sheer-dress1.jpg"
+    ],
+    notes: "Can be worn by itself or layered under a dress. The knit makes your silhouette more accented.",
+    price: "Enquire",
+    isNew: false,
+    likes: 356
+  },
+  {
+    id: "mini-bloomers",
+    title: "Mini Bloomers",
+    designerId: "pm",
+    category: "Pants" as const,
+    palette: ["#f8fafc", "#fce7f3", "#ec4899"],
+    fabric: "Silk. Cotton.",
+    sizeRange: "XXS–XXL",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/bloomers.jpg",
+    gallery: [
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/bloomers.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/bloomers1.jpg"
+    ],
+    notes: "Way back to bring the past back. Perfect little addition to a chill outfit or a little surprise frill under a skirt!",
+    price: "Enquire",
+    isNew: true,
+    likes: 234
+  },
+  {
+    id: "hoodie",
+    title: "Hoodie",
+    designerId: "pm",
+    category: "Coats" as const,
+    palette: ["#6b7280", "#374151", "#111827"],
+    fabric: "Cotton",
+    sizeRange: "XXS–XXL and Made‑to‑measure",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/hoodie.jpg",
+    gallery: [
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/hoodie.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/hoodie1.jpg"
+    ],
+    notes: "Meant to be an oversized but a range of sized are available if you want a tighter fit! Prints are customizable <3",
+    price: "Enquire",
+    isNew: true,
+    likes: 445
+  },
+  {
+    id: "baby-tee",
+    title: "Baby Tee",
+    designerId: "pm",
+    category: "Tops" as const,
+    palette: ["#f8fafc", "#fce7f3", "#ec4899"],
+    fabric: "Cotton",
+    sizeRange: "XXS-XXL",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Baby-tee.jpg",
+    gallery: [
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Baby-tee.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/baby-tee1.jpg"
+    ],
+    notes: "Cute little tees with customizable prints <3",
+    price: "Enquire",
+    isNew: false,
+    likes: 189
+  },
+  {
+    id: "bow-tank",
+    title: "Bow Tank",
+    designerId: "pm",
+    category: "Tops" as const,
+    palette: ["#f8fafc", "#e2e8f0", "#64748b"],
+    fabric: "Cotton",
+    sizeRange: "XXS-XXL",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Bow-Tank.jpg",
+    gallery: [
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Bow-Tank.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/bow-tank1.jpg"
+    ],
+    notes: "Comfy tank which can be tightened using th bow at the back",
+    price: "Enquire",
+    isNew: false,
+    likes: 167
+  },
+  {
+    id: "mesh-top",
+    title: "Mesh Top",
+    designerId: "pm",
+    category: "Tops" as const,
+    palette: ["#111827", "#374151", "#6b7280"],
+    fabric: "Cotton",
+    sizeRange: "XXS–XXL and Made‑to‑measure",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Mesh-top.jpg",
+    gallery: [
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Mesh-top.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/mesh-top1.jpg"
+    ],
+    notes: "Cute mesh top with customizable prints",
+    price: "Enquire",
+    isNew: false,
+    likes: 223
+  },
+  {
+    id: "layered-sheer-top",
+    title: "Layered Sheer Top",
+    designerId: "pm",
+    category: "Tops" as const,
+    palette: ["#f8fafc", "#e2e8f0", "#64748b"],
+    fabric: "Cotton",
+    sizeRange: "XXS–XXL",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Frill-top.jpg",
+    gallery: [
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Frill-top.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Frill-top1.jpg"
+    ],
+    notes: "Cute sheer top which frilly ends – perfect for layering!",
+    price: "Enquire",
+    isNew: false,
+    likes: 198
+  },
+  {
+    id: "babydoll-top",
+    title: "Babydoll Top",
+    designerId: "pm",
+    category: "Tops" as const,
+    palette: ["#f8fafc", "#fce7f3", "#ec4899"],
+    fabric: "Cotton. Linen.",
+    sizeRange: "XXS–XXL",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Baby-doll.jpg",
+    gallery: [
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Baby-doll.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/baby-doll1.jpg"
+    ],
+    notes: "Adjustable babydoll top with an hourglass shape <3",
+    price: "Enquire",
+    isNew: true,
+    likes: 267
+  },
+  {
+    id: "summer-dress",
+    title: "Summer Dress",
+    designerId: "pm",
+    category: "Dresses" as const,
+    palette: ["#f8fafc", "#fce7f3", "#ec4899"],
+    fabric: "Cotton. Linen.",
+    sizeRange: "XXS–XXL",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/summer-dress.jpg",
+    gallery: [
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/summer-dress.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/summer-dress1.jpg"
+    ],
+    notes: "Cute little summer dress with a lace up back to make it adjustable",
+    price: "Enquire",
+    isNew: false,
+    likes: 334
+  },
+  {
+    id: "frills-skirt",
+    title: "Frills Skirt",
+    designerId: "pm",
+    category: "Skirts" as const,
+    palette: ["#1e3a8a", "#374151", "#6b7280"],
+    fabric: "Denim. Canvas. Cotton.",
+    sizeRange: "XXS–XXL",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Frills-skirt.jpg",
+    gallery: [
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Frills-skirt.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/frills-skirt1.jpg"
+    ],
+    notes: "Cute skirt with frills in the slits. Accent lace up parts :3",
+    price: "Enquire",
+    isNew: false,
+    likes: 245
+  },
+  {
+    id: "lace-up-shirt",
+    title: "Lace Up Shirt",
+    designerId: "pm",
+    category: "Tops" as const,
+    palette: ["#f8fafc", "#e2e8f0", "#64748b"],
+    fabric: "Cotton",
+    sizeRange: "XXS–XXL",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Laceup-shirt.jpg",
+    gallery: [
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Laceup-shirt.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/laceup-shirt1.jpg"
+    ],
+    notes: "Shirt with adjustable ties at the back for a more sinched in look",
+    price: "Enquire",
+    isNew: true,
+    likes: 178
   }
 ];
 
