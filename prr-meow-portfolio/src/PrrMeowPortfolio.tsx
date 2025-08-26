@@ -665,80 +665,99 @@ export default function PrrMeowPortfolio() {
           <p className="text-gray-600 text-lg">Each piece is a work of art</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-8">
+        <div className={`${activeCategory ? 'grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-8' : 'flex justify-center'}`}>
           {/* Mobile explore */}
-          <div className="lg:hidden mb-4">
-            <div className="max-w-7xl mx-auto px-6">
-              <button
-                onClick={() => setMobileExploreOpen(v => !v)}
-                className="w-full flex items-center justify-between px-5 py-3 rounded-2xl bg-white/80 backdrop-blur-2xl border border-white/50 shadow-sm"
-                aria-expanded={mobileExploreOpen}
-                aria-controls="mobile-explore-panel"
-              >
-                <span className="font-medium">
-                  {activeCategory ? `Category: ${activeCategory}` : "Select Category"}
-                </span>
-                <ChevronRight className={`h-4 w-4 transform transition ${mobileExploreOpen ? "rotate-90" : ""}`} />
-              </button>
+          {activeCategory && (
+            <div className="lg:hidden mb-4">
+              <div className="max-w-7xl mx-auto px-6">
+                <button
+                  onClick={() => setMobileExploreOpen(v => !v)}
+                  className="w-full flex items-center justify-between px-5 py-3 rounded-2xl bg-white/80 backdrop-blur-2xl border border-white/50 shadow-sm"
+                  aria-expanded={mobileExploreOpen}
+                  aria-controls="mobile-explore-panel"
+                >
+                  <span className="font-medium">
+                    {activeCategory ? `Category: ${activeCategory}` : "Select Category"}
+                  </span>
+                  <ChevronRight className={`h-4 w-4 transform transition ${mobileExploreOpen ? "rotate-90" : ""}`} />
+                </button>
 
-              {mobileExploreOpen && (
-                <div id="mobile-explore-panel" className="mt-3 bg-white/80 rounded-2xl p-4 shadow-2xl border border-white/50">
-                  <nav className="space-y-2">
-                    {CATEGORIES.filter(c => c !== "NEW").map(cat => (
-                      <button
-                        key={cat}
-                        onClick={() => {
-                          setActiveCategory(cat);
-                          setMobileExploreOpen(false);
-                        }}
-                        className={`w-full text-left px-4 py-3 rounded-xl transition-all font-medium ${
-                          activeCategory === cat ? "bg-gradient-to-r from-pink-500 to-purple-500 text-white shadow-lg" : "text-gray-700 hover:bg-pink-50"
-                        }`}
-                      >
-                        {cat}
-                      </button>
-                    ))}
-                  </nav>
-                </div>
-              )}
+                {mobileExploreOpen && (
+                  <div id="mobile-explore-panel" className="mt-3 bg-white/80 rounded-2xl p-4 shadow-2xl border border-white/50 space-y-4">
+                    {/* Categories */}
+                    <div>
+                      <h4 className="font-semibold text-gray-800 mb-2">Categories</h4>
+                      <nav className="space-y-2">
+                        {CATEGORIES.filter(c => c !== "NEW").map(cat => (
+                          <button
+                            key={cat}
+                            onClick={() => {
+                              setActiveCategory(cat);
+                              setMobileExploreOpen(false);
+                            }}
+                            className={`w-full text-left px-4 py-3 rounded-xl transition-all font-medium ${
+                              activeCategory === cat ? "bg-gradient-to-r from-pink-500 to-purple-500 text-white shadow-lg" : "text-gray-700 hover:bg-pink-50"
+                            }`}
+                          >
+                            {cat}
+                          </button>
+                        ))}
+                      </nav>
+                    </div>
+                    
+                    {/* Search */}
+                    <div>
+                      <h4 className="font-semibold text-gray-800 mb-2">Search</h4>
+                      <div className="relative">
+                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                        <Input value={q} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQ(e.target.value)} placeholder="Find your dream piece..." className="pl-11 bg-white/50 border-pink-200 focus:border-pink-400 rounded-2xl" />
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Sidebar */}
           <motion.aside className="hidden lg:block lg:sticky lg:top-24 h-max space-y-6" initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }}>
-            <div className="bg-white/80 backdrop-blur-2xl rounded-3xl p-8 shadow-2xl border border-white/50">
-              <h3 className="font-bold text-gray-800 mb-6 text-lg">Explore</h3>
-              <nav className="space-y-2">
-                {CATEGORIES.filter(c => c !== "NEW").map(cat => (
-                  <motion.button
-                    key={cat}
-                    onClick={() => setActiveCategory(cat)}
-                    className={`w-full text-left px-5 py-3 rounded-2xl transition-all font-medium ${
-                      activeCategory === cat ? "bg-gradient-to-r from-pink-500 to-purple-500 text-white shadow-lg" : "text-gray-700 hover:bg-pink-50"
-                    }`}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    {cat}
-                  </motion.button>
-                ))}
-              </nav>
-            </div>
+            {activeCategory && (
+              <>
+                <div className="bg-white/80 backdrop-blur-2xl rounded-3xl p-8 shadow-2xl border border-white/50">
+                  <h3 className="font-bold text-gray-800 mb-6 text-lg">Explore</h3>
+                  <nav className="space-y-2">
+                    {CATEGORIES.filter(c => c !== "NEW").map(cat => (
+                      <motion.button
+                        key={cat}
+                        onClick={() => setActiveCategory(cat)}
+                        className={`w-full text-left px-5 py-3 rounded-2xl transition-all font-medium ${
+                          activeCategory === cat ? "bg-gradient-to-r from-pink-500 to-purple-500 text-white shadow-lg" : "text-gray-700 hover:bg-pink-50"
+                        }`}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        {cat}
+                      </motion.button>
+                    ))}
+                  </nav>
+                </div>
 
-            <div className="bg-white/80 backdrop-blur-2xl rounded-3xl p-8 shadow-2xl border border-white/50">
-              <h3 className="font-bold text-gray-800 mb-6 text-lg">Search</h3>
-              <div className="relative">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
-                <Input value={q} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQ(e.target.value)} placeholder="Find your dream piece..." className="pl-11 bg-white/50 border-pink-200 focus:border-pink-400 rounded-2xl" />
-              </div>
-            </div>
+                <div className="bg-white/80 backdrop-blur-2xl rounded-3xl p-8 shadow-2xl border border-white/50">
+                  <h3 className="font-bold text-gray-800 mb-6 text-lg">Search</h3>
+                  <div className="relative">
+                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                    <Input value={q} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQ(e.target.value)} placeholder="Find your dream piece..." className="pl-11 bg-white/50 border-pink-200 focus:border-pink-400 rounded-2xl" />
+                  </div>
+                </div>
+              </>
+            )}
           </motion.aside>
 
           {/* Grid */}
-          <div className="min-h-[400px] flex items-center justify-center">
+          <div className={`min-h-[400px] flex items-center justify-center ${activeCategory ? '' : 'w-full max-w-4xl mx-auto'}`}>
             {!activeCategory ? (
               <motion.div 
-                className="text-center py-20"
+                className="text-center py-20 w-full"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
