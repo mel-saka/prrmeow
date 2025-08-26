@@ -50,10 +50,10 @@ const FALLBACK_LOOKS = [
     palette: ["#1e3a8a", "#374151", "#6b7280"],
     fabric: "Denim, Canvas",
     sizeRange: "XXS–XXL and Made‑to‑measure Available",
-    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Laced-up.jpg",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/laced-up.jpg",
     gallery: [
-      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Laced-up.jpg",
-      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Laced-up1.jpg"
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/laced-up.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/laced-up1.jpg"
     ],
     notes: "Wide leg pants with a cheeky slit on the side which can be adjusted to be loosely tied or hidden. Waistband inspired by a collar",
     price: "Enquire",
@@ -68,9 +68,9 @@ const FALLBACK_LOOKS = [
     palette: ["#f8fafc", "#e2e8f0", "#64748b"],
     fabric: "Linen. Cotton.",
     sizeRange: "XXS–XXL",
-    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Collared-lace.jpg",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/collared-lace.jpg",
     gallery: [
-      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Collared-lace.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/collared-lace.jpg",
       "https://stprrmeow.blob.core.windows.net/bc-prrmeow/collared-lace1.jpg"
     ],
     notes: "Long sleeve top with a cute lace collar. Perfect for layering!",
@@ -86,9 +86,9 @@ const FALLBACK_LOOKS = [
     palette: ["#92400e", "#d97706", "#fbbf24"],
     fabric: "Faux Fur",
     sizeRange: "XXS–XXL",
-    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Kitty-coat.jpg",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/kitty-coat.jpg",
     gallery: [
-      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Kitty-coat.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/kitty-coat.jpg",
       "https://stprrmeow.blob.core.windows.net/bc-prrmeow/kitty-coat1.jpg"
     ],
     notes: "Fluffy dreams to embrace you, pop the hood for some cute ears :3",
@@ -104,9 +104,9 @@ const FALLBACK_LOOKS = [
     palette: ["#1e3a8a", "#374151", "#6b7280"],
     fabric: "Canvas. Denim.",
     sizeRange: "XXS–XXL",
-    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Pleated-petals.jpg",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/pleated-petals.jpg",
     gallery: [
-      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Pleated-petals.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/pleated-petals.jpg",
       "https://stprrmeow.blob.core.windows.net/bc-prrmeow/pleated-petals1.jpg"
     ],
     notes: "Fairy core to make you feel like you're wearing a flower.",
@@ -122,9 +122,9 @@ const FALLBACK_LOOKS = [
     palette: ["#f8fafc", "#e2e8f0", "#cbd5e1"],
     fabric: "Silk Organza. Cotton Organza.",
     sizeRange: "XXS–XXL",
-    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Sheer-coat.jpg",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/sheer-coat.jpg",
     gallery: [
-      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Sheer-coat.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/sheer-coat.jpg",
       "https://stprrmeow.blob.core.windows.net/bc-prrmeow/sheer-coat1.jpg"
     ],
     notes: "Tailored coat style which doesn't hide your cute outfit!",
@@ -140,10 +140,10 @@ const FALLBACK_LOOKS = [
     palette: ["#f8fafc", "#fce7f3", "#ec4899"],
     fabric: "Linen. Cotton. Silk.",
     sizeRange: "Made‑to‑measure",
-    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Loli-dress.jpg",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/loli-dress.jpg",
     gallery: [
-      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Loli-dress.jpg",
-      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Loli-dress1.jpg"
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/loli-dress.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/loli-dress1.jpg"
     ],
     notes: "Layers, ties, frills. Everything you need from a Lolita inspired dress. Time to feel like a princess <3",
     price: "Enquire",
@@ -158,10 +158,10 @@ const FALLBACK_LOOKS = [
     palette: ["#f8fafc", "#e2e8f0", "#64748b"],
     fabric: "Silk Organza",
     sizeRange: "XXS–XXL",
-    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Sheer-blouse.jpg",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/sheer-blouse.jpg",
     gallery: [
-      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Sheer-blouse.jpg",
-      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Sheer-blouse1.jpg"
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/sheer-blouse.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/sheer-blouse1.jpg"
     ],
     notes: "Layer it on top, underneath, or be cheeky and wear it as is ;)",
     price: "Enquire",
@@ -176,10 +176,10 @@ const FALLBACK_LOOKS = [
     palette: ["#1e3a8a", "#374151", "#6b7280"],
     fabric: "Denim. Canvas.",
     sizeRange: "XXS–XXL",
-    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Asymmetrical-pleats.jpg",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/asymmetrical-pleats.jpg",
     gallery: [
-      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Asymmetrical-pleats.jpg",
-      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Asymmetrical-pleats1.jpg"
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/asymmetrical-pleats.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/asymmetrical-pleats1.jpg"
     ],
     notes: "Cute, pleated skirt with slight asymmetry.",
     price: "Enquire",
@@ -194,10 +194,10 @@ const FALLBACK_LOOKS = [
     palette: ["#f8fafc", "#e2e8f0", "#374151"],
     fabric: "Silk Organza, Cotton.",
     sizeRange: "XXS–XXL",
-    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Sheer-dress.jpg",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/sheer-dress.jpg",
     gallery: [
-      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Sheer-dress.jpg",
-      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Sheer-dress1.jpg"
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/sheer-dress.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/sheer-dress1.jpg"
     ],
     notes: "Can be worn by itself or layered under a dress. The knit makes your silhouette more accented.",
     price: "Enquire",
@@ -248,9 +248,9 @@ const FALLBACK_LOOKS = [
     palette: ["#f8fafc", "#fce7f3", "#ec4899"],
     fabric: "Cotton",
     sizeRange: "XXS-XXL",
-    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Baby-tee.jpg",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/baby-tee.jpg",
     gallery: [
-      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Baby-tee.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/baby-tee.jpg",
       "https://stprrmeow.blob.core.windows.net/bc-prrmeow/baby-tee1.jpg"
     ],
     notes: "Cute little tees with customizable prints <3",
@@ -266,9 +266,9 @@ const FALLBACK_LOOKS = [
     palette: ["#f8fafc", "#e2e8f0", "#64748b"],
     fabric: "Cotton",
     sizeRange: "XXS-XXL",
-    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Bow-Tank.jpg",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/bow-tank.jpg",
     gallery: [
-      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Bow-Tank.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/bow-tank.jpg",
       "https://stprrmeow.blob.core.windows.net/bc-prrmeow/bow-tank1.jpg"
     ],
     notes: "Comfy tank which can be tightened using th bow at the back",
@@ -284,9 +284,9 @@ const FALLBACK_LOOKS = [
     palette: ["#111827", "#374151", "#6b7280"],
     fabric: "Cotton",
     sizeRange: "XXS–XXL and Made‑to‑measure",
-    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Mesh-top.jpg",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/mesh-top.jpg",
     gallery: [
-      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Mesh-top.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/mesh-top.jpg",
       "https://stprrmeow.blob.core.windows.net/bc-prrmeow/mesh-top1.jpg"
     ],
     notes: "Cute mesh top with customizable prints",
@@ -302,10 +302,10 @@ const FALLBACK_LOOKS = [
     palette: ["#f8fafc", "#e2e8f0", "#64748b"],
     fabric: "Cotton",
     sizeRange: "XXS–XXL",
-    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Frill-top.jpg",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/frill-top.jpg",
     gallery: [
-      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Frill-top.jpg",
-      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Frill-top1.jpg"
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/frill-top.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/frill-top1.jpg"
     ],
     notes: "Cute sheer top which frilly ends – perfect for layering!",
     price: "Enquire",
@@ -320,9 +320,9 @@ const FALLBACK_LOOKS = [
     palette: ["#f8fafc", "#fce7f3", "#ec4899"],
     fabric: "Cotton. Linen.",
     sizeRange: "XXS–XXL",
-    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Baby-doll.jpg",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/baby-doll.jpg",
     gallery: [
-      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Baby-doll.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/baby-doll.jpg",
       "https://stprrmeow.blob.core.windows.net/bc-prrmeow/baby-doll1.jpg"
     ],
     notes: "Adjustable babydoll top with an hourglass shape <3",
@@ -356,9 +356,9 @@ const FALLBACK_LOOKS = [
     palette: ["#1e3a8a", "#374151", "#6b7280"],
     fabric: "Denim. Canvas. Cotton.",
     sizeRange: "XXS–XXL",
-    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Frills-skirt.jpg",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/frills-skirt.jpg",
     gallery: [
-      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Frills-skirt.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/frills-skirt.jpg",
       "https://stprrmeow.blob.core.windows.net/bc-prrmeow/frills-skirt1.jpg"
     ],
     notes: "Cute skirt with frills in the slits. Accent lace up parts :3",
@@ -374,9 +374,9 @@ const FALLBACK_LOOKS = [
     palette: ["#f8fafc", "#e2e8f0", "#64748b"],
     fabric: "Cotton",
     sizeRange: "XXS–XXL",
-    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Laceup-shirt.jpg",
+    hero: "https://stprrmeow.blob.core.windows.net/bc-prrmeow/laceup-shirt.jpg",
     gallery: [
-      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/Laceup-shirt.jpg",
+      "https://stprrmeow.blob.core.windows.net/bc-prrmeow/laceup-shirt.jpg",
       "https://stprrmeow.blob.core.windows.net/bc-prrmeow/laceup-shirt1.jpg"
     ],
     notes: "Shirt with adjustable ties at the back for a more sinched in look",
