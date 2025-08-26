@@ -491,18 +491,17 @@ function LookDialog({ openId, onClose }: { openId: string | null; onClose: () =>
     <AnimatePresence>
       {openId && look && (
         <Dialog open={true} onOpenChange={() => onClose()}>
-          <DialogContent className="fixed inset-0 z-50 flex items-center justify-center p-6">
-            <div className="w-full max-w-full sm:max-w-3xl md:max-w-5xl lg:max-w-6xl p-0 overflow-hidden bg-white/95 backdrop-blur-2xl border-0 shadow-2xl rounded-3xl mx-auto">
-              <motion.button
-                onClick={onClose}
-                className="absolute right-6 top-6 z-50 rounded-full bg-white/90 backdrop-blur-sm p-3 shadow-xl hover:shadow-2xl transition-all"
-                whileHover={{ scale: 1.1, rotate: 90 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <X className="h-5 w-5" />
-              </motion.button>
-
-              <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr]">
+          <DialogContent className="max-w-7xl p-0 overflow-hidden bg-white/95 backdrop-blur-2xl border-0 shadow-2xl">
+            <motion.button
+              onClick={onClose}
+              className="absolute right-6 top-6 z-50 rounded-full bg-white/90 backdrop-blur-sm p-3 shadow-xl hover:shadow-2xl transition-all"
+              whileHover={{ scale: 1.1, rotate: 90 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <X className="h-5 w-5" />
+            </motion.button>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2">
               {/* Image section with parallax */}
               <div className="relative bg-gradient-to-br from-pink-50 to-purple-50 overflow-hidden">
                 <motion.img 
@@ -517,13 +516,13 @@ function LookDialog({ openId, onClose }: { openId: string | null; onClose: () =>
                 
                 {/* Image navigation dots */}
                 {look.gallery.length > 1 && (
-                  <div className="absolute sm:bottom-8 bottom-4 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+                  <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3">
                     {look.gallery.map((_, idx) => (
                       <motion.button
                         key={idx}
                         onClick={() => setSelectedImage(idx)}
                         className={`h-2 rounded-full bg-white/80 transition-all ${
-                          idx === selectedImage ? 'w-6 sm:w-12' : 'w-2'
+                          idx === selectedImage ? 'w-12' : 'w-2'
                         }`}
                         whileHover={{ scale: 1.2 }}
                       />
@@ -533,7 +532,7 @@ function LookDialog({ openId, onClose }: { openId: string | null; onClose: () =>
               </div>
               
               {/* Details section */}
-              <div className="p-6 sm:p-8 lg:p-12 space-y-8 max-h-[70vh] sm:max-h-[80vh] lg:max-h-none overflow-y-auto">
+              <div className="p-10 lg:p-12 space-y-8 max-h-[80vh] lg:max-h-none overflow-y-auto">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -616,7 +615,6 @@ function LookDialog({ openId, onClose }: { openId: string | null; onClose: () =>
                 >
                   <InquiryForm look={look} designer={designer!} />
                 </motion.div>
-              </div>
               </div>
             </div>
           </DialogContent>
