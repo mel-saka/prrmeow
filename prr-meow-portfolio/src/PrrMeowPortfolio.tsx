@@ -606,7 +606,7 @@ function buildLooks(blobUrls: string[]) {
 /** ─────────── main page ─────────── */
 export default function PrrMeowPortfolio() {
   const [q, setQ] = useState("");
-  const [activeCategory, setActiveCategory] = useState<string>("NEW");
+  const [activeCategory, setActiveCategory] = useState<string>(""); // Start with no category selected
   const [openId, setOpenId] = useState<string | null>(null);
   const [mobileExploreOpen, setMobileExploreOpen] = useState(false);
 
@@ -614,6 +614,9 @@ export default function PrrMeowPortfolio() {
   const LOOKS = useMemo(() => buildLooks(blobUrls), [blobUrls]);
 
   const filtered = useMemo(() => {
+    // If no category is selected, return empty array
+    if (!activeCategory) return [];
+    
     return LOOKS.filter(l => {
       const matchesQ = q ? [l.title, l.fabric, l.notes, getDesigner(l.designerId).name].some(v => v.toLowerCase().includes(q.toLowerCase())) : true;
       const matchesCat = activeCategory === "All" ? true : activeCategory === "NEW" ? l.isNew : l.category === activeCategory;
@@ -672,14 +675,16 @@ export default function PrrMeowPortfolio() {
                 aria-expanded={mobileExploreOpen}
                 aria-controls="mobile-explore-panel"
               >
-                <span className="font-medium">Explore</span>
+                <span className="font-medium">
+                  {activeCategory ? `Category: ${activeCategory}` : "Select Category"}
+                </span>
                 <ChevronRight className={`h-4 w-4 transform transition ${mobileExploreOpen ? "rotate-90" : ""}`} />
               </button>
 
               {mobileExploreOpen && (
                 <div id="mobile-explore-panel" className="mt-3 bg-white/80 rounded-2xl p-4 shadow-2xl border border-white/50">
                   <nav className="space-y-2">
-                    {["NEW", ...CATEGORIES.filter(c => c !== "NEW")].map(cat => (
+                    {CATEGORIES.filter(c => c !== "NEW").map(cat => (
                       <button
                         key={cat}
                         onClick={() => {
@@ -690,10 +695,7 @@ export default function PrrMeowPortfolio() {
                           activeCategory === cat ? "bg-gradient-to-r from-pink-500 to-purple-500 text-white shadow-lg" : "text-gray-700 hover:bg-pink-50"
                         }`}
                       >
-                        <span className="flex items-center justify-between">
-                          {cat}
-                          {cat === "NEW" && <Star className="h-4 w-4" />}
-                        </span>
+                        {cat}
                       </button>
                     ))}
                   </nav>
@@ -707,7 +709,7 @@ export default function PrrMeowPortfolio() {
             <div className="bg-white/80 backdrop-blur-2xl rounded-3xl p-8 shadow-2xl border border-white/50">
               <h3 className="font-bold text-gray-800 mb-6 text-lg">Explore</h3>
               <nav className="space-y-2">
-                {["NEW", ...CATEGORIES.filter(c => c !== "NEW")].map(cat => (
+                {CATEGORIES.filter(c => c !== "NEW").map(cat => (
                   <motion.button
                     key={cat}
                     onClick={() => setActiveCategory(cat)}
@@ -717,10 +719,7 @@ export default function PrrMeowPortfolio() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <span className="flex items-center justify-between">
-                      {cat}
-                      {cat === "NEW" && <Star className="h-4 w-4" />}
-                    </span>
+                    {cat}
                   </motion.button>
                 ))}
               </nav>
@@ -736,12 +735,40 @@ export default function PrrMeowPortfolio() {
           </motion.aside>
 
           {/* Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 auto-rows-max">
-            <AnimatePresence mode="popLayout">
-              {filtered.map((look, idx) => (
-                <LookCard key={look.id} look={look} onOpen={setOpenId} index={idx} />
-              ))}
-            </AnimatePresence>
+          <div className="min-h-[400px] flex items-center justify-center">
+            {!activeCategory ? (
+              <motion.div 
+                className="text-center py-20"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                <Sparkles className="h-16 w-16 text-pink-400 mx-auto mb-6" />
+                <h3 className="text-2xl font-bold text-gray-800 mb-4">Choose Your Style</h3>
+                <p className="text-gray-600 text-lg mb-8">Select a category from the menu to explore our beautiful collection</p>
+                <div className="flex flex-wrap justify-center gap-3">
+                  {CATEGORIES.filter(c => c !== "NEW").map(cat => (
+                    <motion.button
+                      key={cat}
+                      onClick={() => setActiveCategory(cat)}
+                      className="px-6 py-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-medium shadow-lg hover:shadow-xl transition-all"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      {cat}
+                    </motion.button>
+                  ))}
+                </div>
+              </motion.div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 auto-rows-max w-full">
+                <AnimatePresence mode="popLayout">
+                  {filtered.map((look, idx) => (
+                    <LookCard key={look.id} look={look} onOpen={setOpenId} index={idx} />
+                  ))}
+                </AnimatePresence>
+              </div>
+            )}
           </div>
         </div>
       </section>
