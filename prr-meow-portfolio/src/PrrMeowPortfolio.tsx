@@ -795,7 +795,7 @@ function LookDialog({ openId, onClose, looks }: { openId: string | null; onClose
                     <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
                       {(() => {
                         const defaultMessage = `Hello ${designer!.name},\n\nI'm interested in the "${look.title}". Could you please provide more details about availability and pricing?\n\nBest regards,`;
-                        const mailto = `mailto:studio@prrmeow.com?subject=${encodeURIComponent(
+                        const mailto = `mailto:catalinamendoz@gmail.com?subject=${encodeURIComponent(
                           `Enquiry: ${look.title}`
                         )}&body=${encodeURIComponent(defaultMessage)}`;
                         return (
@@ -1100,12 +1100,20 @@ export default function PrrMeowPortfolio() {
               <p className="text-gray-600 text-lg">Start your fashion journey today</p>
             </div>
 
-            <div className="flex justify-center">
-              <motion.a href="mailto:studio@prrmeow.com" className="flex items-center gap-4 p-6 rounded-2xl bg-gradient-to-br from-pink-50 to-purple-50 hover:shadow-lg transition-all" whileHover={{ scale: 1.02 }}>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <motion.a href="mailto:catalinamendoz@gmail.com" className="flex items-center gap-4 p-6 rounded-2xl bg-gradient-to-br from-pink-50 to-purple-50 hover:shadow-lg transition-all" whileHover={{ scale: 1.02 }}>
                 <Mail className="h-6 w-6 text-pink-500" />
                 <div>
                   <div className="font-semibold text-gray-800">Email</div>
-                  <div className="text-sm text-gray-600">studio@prrmeow.com</div>
+                  <div className="text-sm text-gray-600">catalinamendoz@gmail.com</div>
+                </div>
+              </motion.a>
+              
+              <motion.a href="https://www.instagram.com/prrmeow.fashion?igsh=emt4Z2ZlZHZ4YTIz" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-6 rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 hover:shadow-lg transition-all" whileHover={{ scale: 1.02 }}>
+                <Instagram className="h-6 w-6 text-purple-500" />
+                <div>
+                  <div className="font-semibold text-gray-800">Instagram</div>
+                  <div className="text-sm text-gray-600">@prrmeow.fashion</div>
                 </div>
               </motion.a>
             </div>
